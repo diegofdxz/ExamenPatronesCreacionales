@@ -1,8 +1,11 @@
 package org.example;
 
 public interface BaseBuilder {
-    BaseBuilder nombre(String nombre);
-    BaseBuilder numeroAmbulancias(int numeroAmbulancias);
-    BaseBuilder tiempoMedioAsistencia(double tiempoMedioAsistencia);
-    Base build();
+    BaseIndividual createBaseIndividual();
+
+    BaseIndividual createBaseIndividual(String nombre, int numeroAmbulancias, double tiempoMedioAsistencia);
+
+    abstract BaseCompuesta createBaseCompuesta(String nombre);
+
+    BaseCompuesta createBaseCompuesta(String nombre, int numeroAmbulancias, double tiempoMedioAsistencia);
 }

@@ -1,30 +1,19 @@
 package org.example;
 
-public class BaseBuilderImpl implements BaseBuilder {
-    private String nombre;
-    private int numeroAmbulancias;
-    private double tiempoMedioAsistencia;
+public abstract class BaseBuilderImpl implements BaseBuilder {
+
+
+
 
     @Override
-    public BaseBuilder nombre(String nombre) {
-        this.nombre = nombre;
-        return this;
+    public BaseIndividual createBaseIndividual(String nombre, int numeroAmbulancias, double tiempoMedioAsistencia) {
+        return new BaseIndividual(nombre, numeroAmbulancias, tiempoMedioAsistencia);
     }
 
-    @Override
-    public BaseBuilder numeroAmbulancias(int numeroAmbulancias) {
-        this.numeroAmbulancias = numeroAmbulancias;
-        return this;
-    }
+
 
     @Override
-    public BaseBuilder tiempoMedioAsistencia(double tiempoMedioAsistencia) {
-        this.tiempoMedioAsistencia = tiempoMedioAsistencia;
-        return this;
-    }
-
-    @Override
-    public Base build() {
-        return new Base(nombre, numeroAmbulancias, tiempoMedioAsistencia);
+    public BaseCompuesta createBaseCompuesta(String nombre, int numeroAmbulancias, double tiempoMedioAsistencia) {
+        return new BaseCompuesta(nombre, numeroAmbulancias, tiempoMedioAsistencia);
     }
 }
